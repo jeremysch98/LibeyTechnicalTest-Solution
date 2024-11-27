@@ -1,0 +1,65 @@
+<div class="card" style="width: 100%;margin-top: 2rem;background-color:#edf2f6;border-radius: 10px; height: 70em; ">
+	<div class="card-header"><b>Mantenimiento de usuario</b></div>
+	<div class="card mb-4 mt-4">
+		<ul class="nav">
+			<button type="button" class="btn-toolbar" (click)="onRedirectToCard()">
+				<a class="nav-link text-toolbar">
+					<span>
+						<svg width="20" height="17" viewBox="0 0 14 14" fill="none">
+							<path
+								d="M11.6667 1H2.33333C1.59695 1 1 1.59695 1 2.33333V11.6667C1 12.403 1.59695 13 2.33333 13H11.6667C12.403 13 13 12.403 13 11.6667V2.33333C13 1.59695 12.403 1 11.6667 1Z"
+								stroke="#38E8C6" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1 5H13" stroke="#38E8C6" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M5 13V5" stroke="#38E8C6" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</span>
+					Volver
+				</a>
+			</button>
+		</ul>
+	</div>
+	<div class="card-body">
+		<div class="row">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Número de documento</th>
+						<th scope="col">Tipo de documento</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Apellido Paterno</th>
+						<th scope="col">Apellido Materno</th>
+						<th scope="col">Dirección</th>
+						<th scope="col">Region</th>
+						<th scope="col">Provincia</th>
+						<th scope="col">Ubigeo</th>
+						<th scope="col">Telefono</th>
+						<th scope="col">Correo</th>
+						<th scope="col">Estado</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let item of LibeyUsers">
+						<th scope="row">{{item.documentNumber}}</th>
+						<th scope="row">{{item.documentTypeId}} - {{item.documentTypeDescription}}</th>
+						<th scope="row">{{item.name}}</th>
+						<th scope="row">{{item.fathersLastName}}</th>
+						<th scope="row">{{item.mothersLastName}}</th>
+						<th scope="row">{{item.address}}</th>
+						<th scope="row">{{item.regionCode}} - {{item.regionDescription}}</th>
+						<th scope="row">{{item.provinceCode}} - {{item.provinceDescription}}</th>
+						<th scope="row">{{item.ubigeoCode}} - {{item.ubigeoDescription}}</th>
+						<th scope="row">{{item.phone}}</th>
+						<th scope="row">{{item.email}}</th>
+						<th scope="row">{{item.active ? "Activo" : "Inactivo"}}</th>
+						<th scope="row">
+							<button (click)="onRedirectToMaintenance(item.documentNumber)">
+								Editar
+							</button>
+						</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
